@@ -1,7 +1,6 @@
 package cn.lilyhuli.controller;
 
 import cn.lilyhuli.service.OrientDbService;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -60,12 +59,6 @@ public class Controller {
 	 */
 	@ApiOperation(value = "newAccount")
 	@PostMapping("/newAccount")
-	@ApiImplicitParams(
-			{
-
-			}
-	)
-
 	@ResponseBody
 	public String newAccount(@RequestBody String params) {
 		return service.newAccount(params, false);
@@ -76,6 +69,8 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+	@ApiOperation(value = "newAccountSql")
+
 	@PostMapping("/newAccountSql")
 	@ResponseBody
 	public String newAccountSql(@RequestBody String params) {
@@ -101,6 +96,8 @@ public class Controller {
 	 * @param params
 	 * @return Response
 	 */
+
+	@ApiOperation(value = "updateNickName")
 	@PostMapping("/updateNickName")
 	@ResponseBody
 	public String updateNickName(@RequestBody String params) {
@@ -112,6 +109,8 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+
+	@ApiOperation(value = "updateNickNameSql")
 	@PostMapping("/updateNickNameSql")
 	@ResponseBody
 	public String updateNickNameSql(@RequestBody String params) {
@@ -142,6 +141,9 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+
+	@ApiOperation(value = "follow")
+
 	@PostMapping("/follow")
 	@ResponseBody
 	public String follow(@RequestBody String params) {
@@ -153,6 +155,7 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+	@ApiOperation(value = "followSql")
 	@PostMapping("/followSql")
 	@ResponseBody
 	public String followSql(@RequestBody String params) {
@@ -178,6 +181,8 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+
+	@ApiOperation(value = "unfollow")
 	@PostMapping("/unfollow")
 	@ResponseBody
 	public String unfollow(@RequestBody String params) {
@@ -189,6 +194,7 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+	@ApiOperation(value = "unfollowSql")
 	@PostMapping("/unfollowSql")
 	@ResponseBody
 	public String unfollowSql(@RequestBody String params) {
@@ -211,6 +217,7 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+	@ApiOperation(value = "listFollowed")
 	@PostMapping("/listFollowed")
 	public String listFollowed(@RequestBody String params) {
 		return service.listFollowed(params, false);
@@ -221,6 +228,8 @@ public class Controller {
 	 * @param params
 	 * @return
 	 */
+
+	@ApiOperation(value = "listFollowedSql")
 	@PostMapping("/listFollowedSql")
 	public String listFollowedSql(@RequestBody String params) {
 		return service.listFollowed(params, true);
